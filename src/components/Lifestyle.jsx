@@ -1,7 +1,7 @@
-
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../App.jsx";
+import { img, logo } from "../assets/images.js";
 
 export default function Lifestyle() {
   const { cartCount } = useContext(CartContext);
@@ -15,7 +15,7 @@ export default function Lifestyle() {
   return (
     <>
       <nav className="navbar navbar-expand-lg nr-navbar"><div className="container">
-        <Link className="navbar-brand nr-brand" to="/"><span className="brand-mark"><i className="bi bi-flower1" /></span>Nourish <span>Ritual</span></Link>
+        <Link className="navbar-brand nr-brand" to="/"><img className="brand-logo" src={logo} alt="" />Nourish <span>Ritual</span></Link>
         <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nrNav"><span className="navbar-toggler-icon" /></button>
         <div className="collapse navbar-collapse" id="nrNav"><ul className="navbar-nav mx-auto">
           <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li><li className="nav-item"><Link className="nav-link" to="/shop">Shop</Link></li><li className="nav-item"><Link className="nav-link active" to="/lifestyle">Lifestyle</Link></li><li className="nav-item"><Link className="nav-link" to="/recipes">Recipes</Link></li><li className="nav-item"><Link className="nav-link" to="/about">Our Story</Link></li>
@@ -26,14 +26,14 @@ export default function Lifestyle() {
         <section className="page-heading"><div className="container"><span className="eyebrow">LITTLE MOMENTS, BIG LOVE</span><h1>Find your own <em>rhythm.</em></h1><p>Healthy routines don't have to be perfect. They just have to feel like yours.</p></div></section>
         <section className="section-pad"><div className="container">
           <div className="lifestyle-intro row align-items-center g-5">
-            <div className="col-lg-6"><img className="rounded-editorial" src="/src/assets/image/lifestyle.jpg" alt="A calm and colorful everyday food ritual" /></div>
+            <div className="col-lg-6"><img className="rounded-editorial" src={img("lifestyle.jpg")} alt="A calm and colorful everyday food ritual" /></div>
             <div className="col-lg-6"><span className="eyebrow">A GENTLER KIND OF WELLNESS</span><h2>Well-being lives in the little things.</h2><p>It's not about changing everything overnight. It's about finding small ways to care for yourself in the middle of real life.</p><p>Start with one ritual that feels doable, enjoy it, and let the rest grow naturally.</p><Link className="btn nr-btn" to="/pantry-builder">Build your pantry <i className="bi bi-arrow-up-right" /></Link></div>
           </div>
         </div></section>
         <section className="section-pad soft-section"><div className="container">
           <div className="section-heading"><div><span className="eyebrow">YOUR DAILY PAUSE</span><h2>Three rituals to try.</h2></div></div>
           <div className="row g-4">{rituals.map((ritual) => <div className="col-md-4" key={ritual.no} data-aos="fade-up">
-            <article className="ritual-card"><img src={`/src/assets/image/${ritual.image}`} alt={ritual.title} /><div className="ritual-card-body"><div className="ritual-meta"><span>{ritual.no}</span><span>{ritual.time}</span></div><h3>{ritual.title}</h3><p>{ritual.text}</p></div></article>
+            <article className="ritual-card"><img src={img(ritual.image)} alt={ritual.title} /><div className="ritual-card-body"><div className="ritual-meta"><span>{ritual.no}</span><span>{ritual.time}</span></div><h3>{ritual.title}</h3><p>{ritual.text}</p></div></article>
           </div>)}</div>
         </div></section>
         <section className="section-pad"><div className="container"><div className="quote-panel"><i className="bi bi-quote" /><blockquote>You don't have to do it all. Start with one good thing.</blockquote><p>A little reminder from Nourish Ritual</p></div></div></section>

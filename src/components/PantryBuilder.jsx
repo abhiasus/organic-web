@@ -1,7 +1,7 @@
-
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../App.jsx";
+import { img, logo } from "../assets/images.js";
 
 const pantryItems = [
   { id: 301, name: "Golden Rolled Oats", price: 189, image: "oats.jpg", note: "For slow mornings" },
@@ -35,7 +35,7 @@ export default function PantryBuilder() {
   return (
     <>
       <nav className="navbar navbar-expand-lg nr-navbar"><div className="container">
-        <Link className="navbar-brand nr-brand" to="/"><span className="brand-mark"><i className="bi bi-flower1" /></span>Nourish <span>Ritual</span></Link>
+        <Link className="navbar-brand nr-brand" to="/"><img className="brand-logo" src={logo} alt="" />Nourish <span>Ritual</span></Link>
         <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nrNav"><span className="navbar-toggler-icon" /></button>
         <div className="collapse navbar-collapse" id="nrNav"><ul className="navbar-nav mx-auto">
           <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li><li className="nav-item"><Link className="nav-link" to="/shop">Shop</Link></li><li className="nav-item"><Link className="nav-link" to="/lifestyle">Lifestyle</Link></li><li className="nav-item"><Link className="nav-link" to="/recipes">Recipes</Link></li><li className="nav-item"><Link className="nav-link" to="/about">Our Story</Link></li>
@@ -51,7 +51,7 @@ export default function PantryBuilder() {
                 const isSelected = selected.includes(item.id);
                 return <div className="col-6 col-lg-4" key={item.id}>
                   <article className={`builder-card ${isSelected ? "selected" : ""}`}>
-                    <img src={`/src/assets/image/${item.image}`} alt={item.name} />
+                    <img src={img(item.image)} alt={item.name} />
                     <div className="builder-card-body"><span>{item.note}</span><h3>{item.name}</h3><strong>₹{item.price}</strong>
                       <button className={isSelected ? "builder-select chosen" : "builder-select"} onClick={() => toggleItem(item.id)}>
                         <i className={`bi ${isSelected ? "bi-check-circle-fill" : "bi-plus-circle"}`} /> {isSelected ? "Selected" : "Add to my pantry"}

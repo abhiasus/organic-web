@@ -330,7 +330,13 @@ h2 em {
   font-weight: 700;
   box-shadow: var(--shadow);
 }
-
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
 .nr-strip {
   padding: 15px 0;
   background: var(--plum);

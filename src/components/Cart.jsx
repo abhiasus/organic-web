@@ -1,7 +1,7 @@
-
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../App.jsx";
+import { img, logo } from "../assets/images.js";
 
 export default function Cart() {
   const { cartItems, cartCount, updateQuantity, removeFromCart, clearCart } = useContext(CartContext);
@@ -20,7 +20,7 @@ export default function Cart() {
   return (
     <>
       <nav className="navbar navbar-expand-lg nr-navbar"><div className="container">
-        <Link className="navbar-brand nr-brand" to="/"><span className="brand-mark"><i className="bi bi-flower1" /></span>Nourish <span>Ritual</span></Link>
+        <Link className="navbar-brand nr-brand" to="/"><img className="brand-logo" src={logo} alt="" />Nourish <span>Ritual</span></Link>
         <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nrNav"><span className="navbar-toggler-icon" /></button>
         <div className="collapse navbar-collapse" id="nrNav"><ul className="navbar-nav mx-auto">
           <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li><li className="nav-item"><Link className="nav-link" to="/shop">Shop</Link></li><li className="nav-item"><Link className="nav-link" to="/lifestyle">Lifestyle</Link></li><li className="nav-item"><Link className="nav-link" to="/recipes">Recipes</Link></li><li className="nav-item"><Link className="nav-link" to="/about">Our Story</Link></li>
@@ -34,7 +34,7 @@ export default function Cart() {
             <div className="cart-layout">
               <div className="cart-items">
                 {cartItems.map((item) => <article className="cart-item" key={item.id}>
-                  <img src={`/src/assets/image/${item.image}`} alt={item.name} />
+                  <img src={img(item.image)} alt={item.name} />
                   <div className="cart-item-details"><h3>{item.name}</h3><p>Everyday goodness</p><strong>₹{item.price}</strong>
                     <div className="quantity-control"><button onClick={() => updateQuantity(item.id, -1)} aria-label={`Decrease ${item.name} quantity`}>−</button><span>{item.quantity}</span><button onClick={() => updateQuantity(item.id, 1)} aria-label={`Increase ${item.name} quantity`}>+</button></div>
                   </div>

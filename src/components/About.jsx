@@ -1,7 +1,7 @@
-
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../App.jsx";
+import { img, logo } from "../assets/images.js";
 
 export default function About() {
   const { cartCount } = useContext(CartContext);
@@ -9,7 +9,7 @@ export default function About() {
   return (
     <>
       <nav className="navbar navbar-expand-lg nr-navbar"><div className="container">
-        <Link className="navbar-brand nr-brand" to="/"><span className="brand-mark"><i className="bi bi-flower1" /></span>Nourish <span>Ritual</span></Link>
+        <Link className="navbar-brand nr-brand" to="/"><img className="brand-logo" src={logo} alt="" />Nourish <span>Ritual</span></Link>
         <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nrNav"><span className="navbar-toggler-icon" /></button>
         <div className="collapse navbar-collapse" id="nrNav"><ul className="navbar-nav mx-auto">
           <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li><li className="nav-item"><Link className="nav-link" to="/shop">Shop</Link></li><li className="nav-item"><Link className="nav-link" to="/lifestyle">Lifestyle</Link></li><li className="nav-item"><Link className="nav-link" to="/recipes">Recipes</Link></li><li className="nav-item"><Link className="nav-link active" to="/about">Our Story</Link></li>
@@ -19,7 +19,7 @@ export default function About() {
       <main className="page-shell">
         <section className="page-heading"><div className="container"><span className="eyebrow">A LITTLE ABOUT US</span><h1>Goodness, with <em>intention.</em></h1><p>We're here to make everyday nourishment feel thoughtful, colorful, and wonderfully doable.</p></div></section>
         <section className="section-pad"><div className="container"><div className="row align-items-center g-5">
-          <div className="col-lg-6"><img className="rounded-editorial" src="/src/assets/image/lifestyle.jpg" alt="Ingredients arranged for a thoughtful everyday meal" /></div>
+          <div className="col-lg-6"><img className="rounded-editorial" src={img("lifestyle.jpg")} alt="Ingredients arranged for a thoughtful everyday meal" /></div>
           <div className="col-lg-6"><span className="eyebrow">WHY NOURISH RITUAL?</span><h2>Food should fit into your life, not take it over.</h2><p>Nourish Ritual began with a simple thought: caring for yourself can be easier when the good stuff is within reach.</p><p>We bring together pantry favorites, fresh inspiration, and small rituals that invite you to slow down and enjoy the everyday.</p><Link className="btn nr-btn" to="/shop">Explore our pantry <i className="bi bi-arrow-up-right" /></Link></div>
         </div></div></section>
         <section className="section-pad soft-section"><div className="container"><div className="section-heading"><div><span className="eyebrow">WHAT MATTERS TO US</span><h2>Our little guiding principles.</h2></div></div>

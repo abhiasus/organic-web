@@ -1,7 +1,7 @@
-
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../App.jsx";
+import { img, logo } from "../assets/images.js";
 
 const products = [
   { id: 201, name: "Berry Breakfast Blend", price: 299, category: "Breakfast", image: "berries.jpg", detail: "A bright start to your morning." },
@@ -24,7 +24,7 @@ export default function Shop() {
   return (
     <>
       <nav className="navbar navbar-expand-lg nr-navbar"><div className="container">
-        <Link className="navbar-brand nr-brand" to="/"><span className="brand-mark"><i className="bi bi-flower1" /></span>Nourish <span>Ritual</span></Link>
+        <Link className="navbar-brand nr-brand" to="/"><img className="brand-logo" src={logo} alt="" />Nourish <span>Ritual</span></Link>
         <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nrNav"><span className="navbar-toggler-icon" /></button>
         <div className="collapse navbar-collapse" id="nrNav"><ul className="navbar-nav mx-auto">
           <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li><li className="nav-item"><Link className="nav-link active" to="/shop">Shop</Link></li><li className="nav-item"><Link className="nav-link" to="/lifestyle">Lifestyle</Link></li><li className="nav-item"><Link className="nav-link" to="/recipes">Recipes</Link></li><li className="nav-item"><Link className="nav-link" to="/about">Our Story</Link></li>
@@ -36,7 +36,7 @@ export default function Shop() {
         <section className="section-pad"><div className="container">
           <div className="shop-toolbar"><p>{shown.length} thoughtful picks</p><div className="filter-pills">{categories.map((cat) => <button key={cat} className={filter === cat ? "filter-pill active" : "filter-pill"} onClick={() => setFilter(cat)}>{cat}</button>)}</div></div>
           <div className="row g-4">{shown.map((product) => <div className="col-6 col-lg-4" key={product.id} data-aos="fade-up">
-            <article className="product-card"><div className="product-image-wrap"><img src={`/src/assets/image/${product.image}`} alt={product.name} /><span className="product-tag">{product.category}</span><button className="quick-add" onClick={() => addToCart(product)} aria-label={`Add ${product.name}`}><i className="bi bi-plus-lg" /></button></div>
+            <article className="product-card"><div className="product-image-wrap"><img src={img(product.image)} alt={product.name} /><span className="product-tag">{product.category}</span><button className="quick-add" onClick={() => addToCart(product)} aria-label={`Add ${product.name}`}><i className="bi bi-plus-lg" /></button></div>
               <div className="product-info"><h3>{product.name}</h3><p>{product.detail}</p><div className="product-price-row"><strong>₹{product.price}</strong><button className="mini-add" onClick={() => addToCart(product)}>Add to bag <i className="bi bi-arrow-up-right" /></button></div></div>
             </article>
           </div>)}</div>

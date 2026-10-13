@@ -1,7 +1,7 @@
-
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../App.jsx";
+import { img, logo } from "../assets/images.js";
 
 const products = [
   { id: 101, name: "Berry Breakfast Blend", price: 299, image: "berries.jpg", tag: "BESTSELLER" },
@@ -17,7 +17,7 @@ export default function Home() {
       <nav className="navbar navbar-expand-lg nr-navbar">
         <div className="container">
           <Link className="navbar-brand nr-brand" to="/">
-            <span className="brand-mark"><i className="bi bi-flower1" /></span>
+            <img className="brand-logo" src={logo} alt="" />
             Nourish <span>Ritual</span>
           </Link>
           <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nrNav" aria-label="Toggle navigation">
@@ -60,7 +60,7 @@ export default function Home() {
               </div>
               <div className="col-lg-6" data-aos="fade-left">
                 <div className="hero-photo-wrap">
-                  <img className="hero-photo" src="/src/assets/image/hero.jpg" alt="Colorful wholesome food and fresh ingredients" />
+                  <img className="hero-photo" src={img("hero.jpg")} alt="Colorful wholesome food and fresh ingredients" />
                   <div className="hero-sticker"><i className="bi bi-heart-fill" /><span>Good food.<br />Good mood.</span></div>
                   <div className="hero-caption">A softer approach to everyday nourishment</div>
                 </div>
@@ -86,25 +86,25 @@ export default function Home() {
             <div className="row g-4 category-grid">
               <div className="col-6 col-lg-3" data-aos="fade-up">
                 <Link to="/shop" className="category-card">
-                  <img src="/src/assets/image/smoothie.jpg" alt="Fresh smoothie ingredients" />
+                  <img src={img("smoothie.jpg")} alt="Fresh smoothie ingredients" />
                   <div><span>01</span><h3>Blend & Sip</h3><p>Little boosts of goodness</p></div>
                 </Link>
               </div>
               <div className="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="70">
                 <Link to="/shop" className="category-card">
-                  <img src="/src/assets/image/oats.jpg" alt="Oats and breakfast ingredients" />
+                  <img src={img("oats.jpg")} alt="Oats and breakfast ingredients" />
                   <div><span>02</span><h3>Slow Mornings</h3><p>Start with something lovely</p></div>
                 </Link>
               </div>
               <div className="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="140">
                 <Link to="/shop" className="category-card">
-                  <img src="/src/assets/image/salad.jpg" alt="Fresh vegetable salad bowl" />
+                  <img src={img("salad.jpg")} alt="Fresh vegetable salad bowl" />
                   <div><span>03</span><h3>Garden Goodness</h3><p>Fresh, colorful, satisfying</p></div>
                 </Link>
               </div>
               <div className="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="210">
                 <Link to="/pantry-builder" className="category-card">
-                  <img src="/src/assets/image/pantry.jpg" alt="Jars of pantry staples and nuts" />
+                  <img src={img("pantry.jpg")} alt="Jars of pantry staples and nuts" />
                   <div><span>04</span><h3>Pantry Rituals</h3><p>Stock up on the good stuff</p></div>
                 </Link>
               </div>
@@ -123,7 +123,7 @@ export default function Home() {
                 <div className="col-md-4" key={product.id} data-aos="fade-up">
                   <article className="product-card">
                     <div className="product-image-wrap">
-                      <img src={`/src/assets/image/${product.image}`} alt={product.name} />
+                      <img src={img(product.image)} alt={product.name} />
                       <span className="product-tag">{product.tag}</span>
                       <button className="quick-add" onClick={() => addToCart(product)} aria-label={`Add ${product.name} to bag`}>
                         <i className="bi bi-plus-lg" />
@@ -141,7 +141,7 @@ export default function Home() {
           <div className="container">
             <div className="ritual-feature row g-0 align-items-stretch">
               <div className="col-lg-6">
-                <img src="/src/assets/image/lifestyle.jpg" alt="Calm, mindful everyday food ritual" />
+                <img src={img("lifestyle.jpg")} alt="Calm, mindful everyday food ritual" />
               </div>
               <div className="col-lg-6 ritual-copy">
                 <span className="eyebrow">A NOTE TO SLOW DOWN</span>
@@ -162,7 +162,7 @@ export default function Home() {
                 <p>Easy recipes, everyday ingredients, and plenty of room to make them your own.</p>
                 <Link to="/recipes" className="btn nr-btn">Get inspired <i className="bi bi-arrow-up-right" /></Link>
               </div>
-              <div className="col-lg-5"><img src="/src/assets/image/recipe.jpg" alt="Freshly prepared wholesome recipe" /></div>
+              <div className="col-lg-5"><img src={img("recipe.jpg")} alt="Freshly prepared wholesome recipe" /></div>
             </div>
           </div>
         </section>
